@@ -34,4 +34,10 @@ public class ProdutoServico {
   public Iterable<ProdutoModelo> listar() {
     return pr.findAll();
   }
+
+  public ResponseEntity<RespostaModelo> remover(long codigo) {
+    pr.deleteById(codigo);
+    rm.setResposta("O produto foi removido com sucesso!");
+    return new ResponseEntity<RespostaModelo>(rm, HttpStatus.OK);
+  }
 }
