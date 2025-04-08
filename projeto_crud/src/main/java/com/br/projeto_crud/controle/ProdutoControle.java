@@ -1,6 +1,10 @@
 package com.br.projeto_crud.controle;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.br.projeto_crud.modelo.ProdutoModelo;
 import com.br.projeto_crud.servico.ProdutoServico;
@@ -8,6 +12,17 @@ import com.br.projeto_crud.servico.ProdutoServico;
 public class ProdutoControle {
 
   private ProdutoServico ps;
+
+  @PostMapping("/cadastrar")
+    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModelo pm){
+        return ps.cadastrarAlterar(pm, "cadastrar");
+    }
+    
+    @PutMapping("/alterar")
+    public ResponseEntity<?> alterar(@RequestBody ProdutoModelo pm){
+        return ps.cadastrarAlterar(pm, "alterar");
+    }
+    
    @GetMapping("/listar")
     public Iterable<ProdutoModelo> listar(){
         return ps.listar();
