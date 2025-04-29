@@ -8,6 +8,8 @@ function Tabela({ vetor }) {
           <th>Marca</th>
           <th>Selecionar</th>
         </tr>
+      </thead>
+
         <tbody>
           {vetor.map((obj, indice) => (
             <tr key={indice}>
@@ -20,7 +22,6 @@ function Tabela({ vetor }) {
             </tr>
           ))}
         </tbody>
-      </thead>
     </table>
   );
 }
